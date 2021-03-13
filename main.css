@@ -1,0 +1,23 @@
+/* font-family: 'Architects Daughter', cursive; */
+/* font-family: 'Comic Neue', cursive; */
+/* font-family: 'Stick', sans-serif; */
+
+.display-5{ 
+    font-family: 'Stick', sans-serif;
+
+}
+
+.tri-btn{
+     float: right;
+
+}
+
+h2, h3, h4, h5 {
+    font-family:'Comic Neue', cursive;
+}
+.card{
+    font-family: 'Architects Daughter', cursive;
+    font-weight: bolder;
+    background-color: aqua;
+}
+

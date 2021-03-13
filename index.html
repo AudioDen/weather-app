@@ -6,35 +6,67 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Comic+Neue:ital@1&family=Stick&display=swap"
+        rel="stylesheet">
 
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
 
+
+
 <body>
     <!--    main header  -->
-    <header>
-        <h1>WEATHER</h1>
+    <header class="jumbotron">
+        <h1 class="display-5">weather</h1>
+        <!-- <p class="lead">A simple calendar app for scheduling your work day</p> -->
+        <p id="currentDay" class="lead"></p>
+        <p> <span id="time-display">00:00:00</span></p>
+        <h5>Choose a city to get the current and 5-day weather forecast</h5>
+        <div class="input-group mb-3">
+            <input id="city-input" type="text" class="form-control" placeholder="Enter city"
+                aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="button" id="search-btn">search</button>
+        </div>
+        <div>
+            <h3>Today</h3>
+
+            <div class="card" style="width: 15rem;">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Temp <span>0</span></li>
+                    <li class="list-group-item">Humidity <span>%</span></li>
+                    <li class="list-group-item">UV index <span>#</span></li>
+                </ul>
+            </div>
+        </div>
     </header>
 
 
     <div class="container-fluid">
 
 
-        <div class=" row col-md-4">
-            <h5>Choose a city to get the current and 5-day weather forcast</h5>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="ENTER CITY" aria-label="Recipient's username" aria-describedby="button-addon2">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2">SEARCH</button>
-              </div>
+
+
+        <div class="tri-btn" id="tri-btn">
+            <button type="button" class="btn btn-primary btn-sm" id="btn-1">1mall button</button>
+            <button type="button" class="btn btn-primary btn-sm" id="btn-2">2mall button</button>
+            <button type="button" class="btn btn-primary btn-sm" id="btn-3">3mall button</button>
         </div>
 
         <br>
 
         <div class="container-fluid row col-md-12">
+            
+        <br>
             <div>
-                <h3>Today</h3>
-
-                <div class="card" style="width: 15rem;">
+               <h3>5-DAY FORECAST</h3>
+            </div>
+        <div class="row">
+            <div class=" col-sm-6 col-md-6 col-lg-2 5-day">
+                <div class="card" style="width: 10rem;">
+                    <h5>day</h5>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Temp <span>0</span></li>
                         <li class="list-group-item">Humidity <span>%</span></li>
@@ -42,68 +74,55 @@
                     </ul>
                 </div>
             </div>
-        </div>
-        <br>
-    <div class="row">
-        <div class=" col-sm-6 col-md-6 col-lg-2 5-day">
-            <div class="card" style="width: 10rem;">
-                <h5>day</h5>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Temp <span>0</span></li>
-                    <li class="list-group-item">Humidity <span>%</span></li>
-                    <li class="list-group-item">UV index <span>#</span></li>
-                </ul>
-            </div>   
-        </div>
-        <div class=" col-sm-6 col-md-6 col-lg-2 5-day">
-            <div class="card" style="width: 10rem;">
-                <h5>day</h5>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Temp <span>0</span></li>
-                    <li class="list-group-item">Humidity <span>%</span></li>
-                    <li class="list-group-item">UV index <span>#</span></li>
-                </ul>
-            </div>   
-        </div>
-        <div class=" col-sm-6 col-md-6 col-lg-2 5-day">
-            <div class="card" style="width: 10rem;">
-                <h5>day</h5>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Temp <span>0</span></li>
-                    <li class="list-group-item">Humidity <span>%</span></li>
-                    <li class="list-group-item">UV index <span>#</span></li>
-                </ul>
-            </div>   
-        </div>
-        <div class=" col-sm-6 col-md-6 col-lg-2 5-day">
-            <div class="card" style="width: 10rem;">
-                <h5>day</h5>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Temp <span>0</span></li>
-                    <li class="list-group-item">Humidity <span>%</span></li>
-                    <li class="list-group-item">UV index <span>#</span></li>
-                </ul>
-            </div>   
-        </div>
-        <div class=" col-sm-6 col-md-6 col-lg-2 5-day">
-            <div class="card" style="width: 10rem;">
-                <h5>day</h5>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Temp <span>0</span></li>
-                    <li class="list-group-item">Humidity <span>%</span></li>
-                    <li class="list-group-item">UV index <span>#</span></li>
-                </ul>
-            </div>   
-        </div>
+            <div class=" col-sm-6 col-md-6 col-lg-2 5-day">
+                <div class="card" style="width: 10rem;">
+                    <h5>day</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Temp <span>0</span></li>
+                        <li class="list-group-item">Humidity <span>%</span></li>
+                        <li class="list-group-item">UV index <span>#</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class=" col-sm-6 col-md-6 col-lg-2 5-day">
+                <div class="card" style="width: 10rem;">
+                    <h5>day</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Temp <span>0</span></li>
+                        <li class="list-group-item">Humidity <span>%</span></li>
+                        <li class="list-group-item">UV index <span>#</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class=" col-sm-6 col-md-6 col-lg-2 5-day">
+                <div class="card" style="width: 10rem;">
+                    <h5>day</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Temp <span>0</span></li>
+                        <li class="list-group-item">Humidity <span>%</span></li>
+                        <li class="list-group-item">UV index <span>#</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class=" col-sm-6 col-md-6 col-lg-2 5-day">
+                <div class="card" style="width: 10rem;">
+                    <h5>day</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Temp <span>0</span></li>
+                        <li class="list-group-item">Humidity <span>%</span></li>
+                        <li class="list-group-item">UV index <span>#</span></li>
+                    </ul>
+                </div>
+            </div>
 
-    </div>
+        </div>
 
         ===1
     </div>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script src='main.js'></script>
 </head>
