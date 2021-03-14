@@ -1,5 +1,8 @@
 var apiKey = "d048243cf2b78c95a538448ad9305181"
-$(document).ready(function() {
+var todayNow = moment().format('dddd');
+//var storageCity = localstorage.getItem(value)
+
+$(document).ready(function () {
     var timeDisplayEl = $('#time-display');
     var todayEl = $('#currentDay');
     //shows date and time
@@ -16,51 +19,64 @@ $(document).ready(function() {
     //calling the two function to operate
     setInterval(displayTime, 1000);
     setInterval(dayDisplay, 1000);
-    
-    $("#search-btn").on("click",function(){
-       // alert("hello!!!")
-var city = $("#city-input").val();
-console.log(city);
-//localStorage.setItem(city,date);
 
-searchCityWeather(city,);
 
-function searchCityWeather(city){
-    $.ajax({
-        type:"GET",
-        //url: `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`,
-        url: `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`,
-        datatype: "json",
-        success: function(data) {
-            console.log(data)
+
+    $("#search-btn").on("click", function () {
+        // alert("hello!!!")
+        var city = $("#city-input").val();
+        var todayNow = moment().format('dddd');
+        console.log(city);
+        localStorage.setItem(todayNow,city);
+        //var storageCity = localstorage.getItem(city)
+        
+
+        searchCityWeather(city,);
+
+        function searchCityWeather(city) {
+            $.ajax({
+                type: "GET",
+                url: `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`,
+                //datatype: "json",
+                success: function (data) {
+                    console.log(data);
+                    $("#tp-tday").text(data["main"]["temp"]);
+                    $("#hm-tday").text(data["main"]["humidity"]);
+                    
+                }
+            })
         }
-    })
-}
-searchCityForcast(city);
+        searchCityForcast(city);
 
-function searchCityForcast(city){
-    $.ajax({
-        type:"GET",
-        url: `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`,
-        //url: `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`,
-        datatype: "json",
-        success: function(data) {
-            console.log(data)
+        function searchCityForcast(city) {
+            $.ajax({
+                type: "GET",
+                url: `http://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`,
+
+                // datatype: "json",
+                success: function (data) {
+                    console.log(data);
+                    for (let i = 0; i < data.list.length; i++){
+                        if (data.list[i].dt_txt.indexOf('12:00:00')!== -1){
+                            console.log(data.list[i])
+                            $("#ftd1").text(data.list[i]["main"]["temp"]);
+                            $("#fhmd1").text(data.list[i]["main"]["humidity"]); 
+                            $("#ftd2").text(data.list[i]["main"]["temp"]);
+                            $("#fhmd2").text(data.list[i]["main"]["humidity"]); 
+                            $("#ftd3").text(data.list[i]["main"]["temp"]);
+                            $("#fhmd3").text(data.list[i]["main"]["humidity"]); 
+                            $("#ftd4").text(data.list[i]["main"]["temp"]);
+                            $("#fhmd4").text(data.list[i]["main"]["humidity"]); 
+                            $("#ftd5").text(data.list[i]["main"]["temp"]);
+                            $("#fhmd5").text(data.list[i]["main"]["humidity"]); 
+                        }
+                    }
+
+                }
+            })
         }
-    })
-}
-searchCityWeather()
-});
+        searchCityWeather()
+        searchCityForcast()
+    });
 
-
-/* <div class="input-group mb-3">
-                <input id="city-input" type="text" class="form-control" placeholder="ENTER CITY" aria-label="city input"
-                    aria-describedby="button-addon2">
-                <button class="btn btn-outline-secondary " id="search-btn" type="button"
-                    id="button-addon2">SEARCH</button>
-            </div>*/
-
-
-
-
-});
+})
