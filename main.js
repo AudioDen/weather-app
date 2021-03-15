@@ -1,5 +1,7 @@
 var apiKey = "d048243cf2b78c95a538448ad9305181"
 var todayNow = moment().format('dddd');
+//var lon = data.coord.lon;
+//var lat = data.coord.lat;
 //var storageCity = localstorage.getItem(value)
 
 $(document).ready(function () {
@@ -42,6 +44,22 @@ $(document).ready(function () {
                     console.log(data);
                     $("#tp-tday").text(data["main"]["temp"]);
                     $("#hm-tday").text(data["main"]["humidity"]);
+                    var lon = data.coord.lon;
+                    var lat = data.coord.lat;
+                }
+            })
+        }
+        searchCityUv(city);
+
+        function searchCityUv(city) {
+            $.ajax({
+                type: "GET",
+                url: `http://api.openweathermap.org/data/2.5/air_pollution?lat={lat}&lon={lon}&appid=${apiKey}` ,
+                //datatype: "json",
+                success: function (data) {
+                    console.log(data);
+                    
+                    
                     
                 }
             })
@@ -61,22 +79,25 @@ $(document).ready(function () {
                             console.log(data.list[i])
                             $("#ftd1").text(data.list[i]["main"]["temp"]);
                             $("#fhmd1").text(data.list[i]["main"]["humidity"]); 
-                            $("#ftd2").text(data.list[i]["main"]["temp"]);
-                            $("#fhmd2").text(data.list[i]["main"]["humidity"]); 
-                            $("#ftd3").text(data.list[i]["main"]["temp"]);
-                            $("#fhmd3").text(data.list[i]["main"]["humidity"]); 
-                            $("#ftd4").text(data.list[i]["main"]["temp"]);
-                            $("#fhmd4").text(data.list[i]["main"]["humidity"]); 
-                            $("#ftd5").text(data.list[i]["main"]["temp"]);
-                            $("#fhmd5").text(data.list[i]["main"]["humidity"]); 
+                          //  $("#ftd2").text(data.list[i]["main"]["temp"]);
+                          //  $("#fhmd2").text(data.list[i]["main"]["humidity"]); 
+                          //  $("#ftd3").text(data.list[i]["main"]["temp"]);
+                           // $("#fhmd3").text(data.list[i]["main"]["humidity"]); 
+                          //  $("#ftd4").text(data.list[i]["main"]["temp"]);
+                          //  $("#fhmd4").text(data.list[i]["main"]["humidity"]); 
+                          //  $("#ftd5").text(data.list[i]["main"]["temp"]);
+                          //  $("#fhmd5").text(data.list[i]["main"]["humidity"]); 
+                          
                         }
                     }
 
                 }
             })
+
         }
         searchCityWeather()
         searchCityForcast()
+        searchCityUv()
     });
 
 })
