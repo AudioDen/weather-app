@@ -46,24 +46,32 @@ $(document).ready(function () {
                     $("#hm-tday").text(data["main"]["humidity"]);
                     var lon = data.coord.lon;
                     var lat = data.coord.lat;
-                }
-            })
-        }
-        searchCityUv(city);
 
-        function searchCityUv(city) {
+        function searchCityUv(lon,lat) {
             $.ajax({
                 type: "GET",
-                url: `http://api.openweathermap.org/data/2.5/air_pollution?lat={lat}&lon={lon}&appid=${apiKey}` ,
+                url: `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}` ,
                 //datatype: "json",
                 success: function (data) {
-                    console.log(data);
-                    
-                    
-                    
+                    console.log(data);   
                 }
             })
         }
+                }
+            })
+        }
+        // searchCityUv(city);
+
+        // function searchCityUv(lot,lan) {
+        //     $.ajax({
+        //         type: "GET",
+        //         url: `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}` ,
+        //         //datatype: "json",
+        //         success: function (data) {
+        //             console.log(data);   
+        //         }
+        //     })
+        // }
         searchCityForcast(city);
 
         function searchCityForcast(city) {
@@ -95,9 +103,9 @@ $(document).ready(function () {
             })
 
         }
-        searchCityWeather()
-        searchCityForcast()
-        searchCityUv()
+       // searchCityWeather()
+       // searchCityForcast()
+       // searchCityUv()
     });
 
 })
