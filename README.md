@@ -7,3 +7,5 @@
  presented with a color that indicates whether the conditions are favorable, moderate, or severe.
  * View future weather conditions for that city presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity.
  * Click on a city in the search history again presented with current and future conditions for that city.
+
+https://audioden.github.io/weather-app/
