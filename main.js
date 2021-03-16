@@ -46,19 +46,21 @@ $(document).ready(function () {
                     $("#hm-tday").text(data["main"]["humidity"]);
                     var lon = data.coord.lon;
                     var lat = data.coord.lat;
-                    searchCityUv(lot,lan);
+                    searchCityUv(lon,lat);
                 }
             })
         }
         
 
-        function searchCityUv(lot,lan) {
+        function searchCityUv(lon,lat) {
             $.ajax({
                 type: "GET",
-                url: `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}` ,
+                url: `http://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apiKey}` ,
                 //datatype: "json",
                 success: function (data) {
-                    console.log(data);   
+                    console.log(data); 
+                    
+                    $("#uv-tday").text(data["value"]);
                 }
             })
         }
@@ -72,20 +74,19 @@ $(document).ready(function () {
                 // datatype: "json",
                 success: function (data) {
                     console.log(data);
+                    let count = 1
                     for (let i = 0; i < data.list.length; i++){
                         if (data.list[i].dt_txt.indexOf('12:00:00')!== -1){
                             console.log(data.list[i])
-                            $("#ftd1").text(data.list[i]["main"]["temp"]);
-                            $("#fhmd1").text(data.list[i]["main"]["humidity"]); 
-                          //  $("#ftd2").text(data.list[i]["main"]["temp"]);
-                          //  $("#fhmd2").text(data.list[i]["main"]["humidity"]); 
-                          //  $("#ftd3").text(data.list[i]["main"]["temp"]);
-                           // $("#fhmd3").text(data.list[i]["main"]["humidity"]); 
-                          //  $("#ftd4").text(data.list[i]["main"]["temp"]);
-                          //  $("#fhmd4").text(data.list[i]["main"]["humidity"]); 
-                          //  $("#ftd5").text(data.list[i]["main"]["temp"]);
-                          //  $("#fhmd5").text(data.list[i]["main"]["humidity"]); 
+                            let tempId = "#ftd" + count
+                            let humId = "#fhmd" + count
+                            count++
+                            $(tempId).text(data.list[i]["main"]["temp"]);
+                            $(humId).text(data.list[i]["main"]["humidity"]); 
                           
+                        }
+                        if (count > 5){
+                            break
                         }
                     }
 
