@@ -44,6 +44,7 @@ $(document).ready(function () {
                     console.log(data);
                     $("#tp-tday").text(data["main"]["temp"]);
                     $("#hm-tday").text(data["main"]["humidity"]);
+                    $("#wind-tday").text(data["wind"]["speed"]);
                     var lon = data.coord.lon;
                     var lat = data.coord.lat;
                     searchCityUv(lon,lat);
@@ -56,7 +57,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "GET",
                 url: `https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apiKey}` ,
-                //datatype: "json",
+                
                 success: function (data) {
                     console.log(data); 
                     
@@ -71,7 +72,7 @@ $(document).ready(function () {
                 type: "GET",
                 url: `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`,
 
-                // datatype: "json",
+                
                 success: function (data) {
                     console.log(data);
                     let count = 1
@@ -80,11 +81,14 @@ $(document).ready(function () {
                             console.log(data.list[i])
                             let tempId = "#ftd" + count
                             let humId = "#fhmd" + count
+                            let windId = "#fwind" + count
                             count++
                             $(tempId).text(data.list[i]["main"]["temp"]);
-                            $(humId).text(data.list[i]["main"]["humidity"]); 
+                            $(humId).text(data.list[i]["main"]["humidity"]);
+                            $(windId).text(data.list[i]["wind"] ["speed"]); 
                           
                         }
+                        //stops the loop if bigger than 5
                         if (count > 5){
                             break
                         }

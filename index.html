@@ -20,24 +20,31 @@
 <body>
     <!--    main header  -->
     <header class="jumbotron">
+
         <h1 class="display-5">weather</h1>
         <!-- <p class="lead">A simple calendar app for scheduling your work day</p> -->
         <p id="currentDay" class="lead"></p>
         <p> <span id="time-display">00:00:00</span></p>
         <h5>Choose a city to get the current and 5-day weather forecast</h5>
+
         <div class="input-group mb-3">
             <input id="city-input" type="text" class="form-control" placeholder="Enter city"
                 aria-label="Recipient's username" aria-describedby="button-addon2">
             <button class="btn btn-outline-secondary" type="button" id="search-btn">search</button>
         </div>
+
+
         <div>
-            <h3>Today</h3>
+            
 
             <div class="card" style="width: 15rem;">
+                <h3>Today</h3>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Temp F <span id=tp-tday></span></li>
-                    <li class="list-group-item">Humidity % <span id=hm-tday></span></li>
                     <li class="list-group-item">UV Index <span id=uv-tday></span></li>
+                    <li class="list-group-item">Humidity % <span id=hm-tday></span></li>
+                    <li class="list-group-item">Wind Speed <span id=-tday></span></li>
+                    
                 </ul>
             </div>
         </div>
@@ -51,57 +58,68 @@
         <div class="container-fluid row col-md-12">
 
             <br>
-            <div>
+
+<!--  -->
+            
                 <h3>5-DAY FORECAST</h3>
-            </div>
+            
+
             <div class="row">
+<!--  -->
                 <div class=" col-sm-6  col-lg-2 5-day">
                     <div class="card" style="width: 10rem;">
-                        <h5>1</h5>
+                        <h5><span id= "date"> </span> </h5>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Temp <span id=ftd1>0</span></li>
-                            <li class="list-group-item">Humidity <span id=fhmd1>%</span></li>
-
+                            <li class="list-group-item">Temp <span id= "ftd1">0</span></li>
+                            <li class="list-group-item">Humidity <span id= "fhmd1">%</span></li>
+                            <li class="list-group-item">Wind speed <span id= "fwind1">%</span></li>
                         </ul>
                     </div>
                 </div>
+<!--  -->
+
                 <div class=" col-sm-6  col-lg-2 5-day">
                     <div class="card" style="width: 10rem;">
                         <h5>2</h5>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Temp <span id=ftd2>0</span></li>
-                            <li class="list-group-item">Humidity <span id=fhmd2>%</span></li>
-
+                            <li class="list-group-item">Temp <span id= "ftd2">0</span></li>
+                            <li class="list-group-item">Humidity <span id= "fhmd2">%</span></li>
+                            <li class="list-group-item">Wind speed <span id="fwind2">%</span></li>
                         </ul>
                     </div>
                 </div>
+<!--  -->
+
                 <div class=" col-sm-6  col-lg-2 5-day">
                     <div class="card" style="width: 10rem;">
                         <h5>3</h5>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Temp <span id=ftd3>0</span></li>
-                            <li class="list-group-item">Humidity <span id=fhmd3>%</span></li>
-
+                            <li class="list-group-item">Temp <span id= "ftd3">0</span></li>
+                            <li class="list-group-item">Humidity <span id= "fhmd3">%</span></li>
+                            <li class="list-group-item">Wind speed <span id= "fwind3">%</span></li>
                         </ul>
                     </div>
                 </div>
+<!--  -->
+
                 <div class=" col-sm-6 col-lg-2 5-day">
                     <div class="card" style="width: 10rem;">
                         <h5>4</h5>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Temp <span id=ftd4>0</span></li>
-                            <li class="list-group-item">Humidity <span id=fhmd4>%</span></li>
-
+                            <li class="list-group-item">Temp <span id= "ftd4">0</span></li>
+                            <li class="list-group-item">Humidity <span id="fhmd4">%</span></li>
+                            <li class="list-group-item">Wind speed <span id="fwind4">%</span></li>
                         </ul>
                     </div>
                 </div>
+<!--  -->
                 <div class=" col-sm-6  col-lg-2 5-day">
                     <div class="card" style="width: 10rem;">
                         <h5>5</h5>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Temp <span id=ftd5>0</span></li>
-                            <li class="list-group-item">Humidity <span id=fhmd5>%</span></li>
-
+                            <li class="list-group-item">Temp <span id= "ftd5">0</span></li>
+                            <li class="list-group-item">Humidity <span id= "fhmd5">%</span></li>
+                            <li class="list-group-item">Wind speed <span id= "fwind5">%</span></li>
                         </ul>
                     </div>
                 </div>
