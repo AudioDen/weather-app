@@ -44,7 +44,7 @@ $(document).ready(function () {
                     console.log(data);
                     $("#tp-tday").text(data["main"]["temp"]);
                     $("#hm-tday").text(data["main"]["humidity"]);
-                    $("#wind-tday").text(data["wind"]["speed"]);
+                    $("#fwind-tday").text(data["wind"]["speed"]);
                     var lon = data.coord.lon;
                     var lat = data.coord.lat;
                     searchCityUv(lon,lat);
